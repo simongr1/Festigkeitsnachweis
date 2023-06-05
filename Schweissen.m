@@ -1,9 +1,6 @@
 clc
 clear
 close all
-%%%%LOG%%%%%
-%Prozentuale verteilung der Leitung hinzugefügt
-
 
 %%%%Konstanten%%%%
 P=21 *1e6; %Leistung in Watt
@@ -27,7 +24,7 @@ anzuschweissende_stufe=3; %Es wird immer die mit der kleineren nummer verwendet 
 
 
 %Materialwerte
-tao_zul=382;%MPa
+tau_zul=382;%MPa
 dichte=4.5;%g/cm^3
 pzul= 600; %Mpa
 
@@ -41,11 +38,11 @@ Moment=Moment*1000;%In Nmm umrechnen
 W_wb=(pi*(r_aussen^4- r_innen^4))/(32*r_aussen);
 W_wt=2*W_wb;
 
-tao_wt=Moment/W_wt;
+tau_wt=Moment/W_wt;
 
-tao_w_zul=alpha_wd*alpha_0*beta*(tao_zul/Sd); %Dynamische Festigkeit
+tau_w_zul=alpha_wd*alpha_0*beta*(tau_zul/Sd); %Dynamische Festigkeit
 
 disp("Sicherheit Schweißnaht")
 
-sicherheit=tao_w_zul/tao_wt
+sicherheit=tau_w_zul/tau_wt
 
